@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid updates!</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="menu-bar">
+        <div class="logo">
+          <img
+            src="{{ url_for('static', filename='logo.jpg') }}"
+            alt="#"
+            style="opacity: 0.9"
+          />
+        </div>
+        <div class="list" id="li">
+          <ul>
+            <li><a href="{{ url_for('mainpage') }}">Home</a></li>
+            <li><a href=" {{ url_for('data') }}">Data</a></li>
+            <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+            <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+          </ul>
+        </div>
+        <div class="nav">
+          <label>
+            <input type="checkbox" />
+            <span class="menu">
+              <span class="hamburger"></span>
+            </span>
+            <ul>
+              <li><a href="{{ url_for('mainpage') }}">Home</a></li>
+              <li><a href="{{ url_for('data') }}">Data</a></li>
+              <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+              <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+            </ul>
+          </label>
+        </div>
+      </div>
+      <div id="particles-js"></div>
+      <div class="content">
+        <h1>The Corona Virus Outbreak</h1>
+        <h2>Get the Latest Updates here</h2>
+      </div>
+      <div id="particles"></div>
+    </header>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS.load(
+        "particles-js",
+        "{{ url_for('static', filename='particles.json') }}",
+        function () {
+          console.log("particles.json loaded...");
+        }
+      );
+    </script>
+  </body>
+</html>

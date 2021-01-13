@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styledata.css">
+    <link rel="stylesheet" href="static/style.css" type="text/css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Terminal+Dosis" />
+
+
+
+    <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <title>Graphs</title>
+</head>
+
+<body>
+
+
+        
+    <div class="menu-bar" style="background-color: black;">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="#" style="opacity: 0.9;">
+        </div>
+        <div class="list" id="li">
+            <ul>
+                <li><a href="{{ url_for('mainpage') }}">Home</a></li>
+                <li><a href=" {{ url_for('data') }}">Data</a></li>
+                <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+                <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+            </ul>
+        </div>
+
+        <!-- This is place for the bug that we have in Mobile phones -->
+
+        <div class="nav">
+            <label>
+                <input type="checkbox">
+                <span class="menu">
+                    <span class="hamburger"></span>
+                </span>
+                <ul>
+                    <li><a href="{{ url_for('mainpage') }}">Home</a></li>
+                    <li><a href="{{ url_for('data') }}">Data</a></li>
+                    <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+                    <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+                </ul>
+            </label>
+        </div>
+    </div>
+
+    <div class="belownav" style="background-color: black;">
+
+<br>
+<br>
+<br>
+        <div class="casesdata" style="color: blanchedalmond;">
+            <div class="cases confirmed" style="box-shadow: 3px 3px 2px grey; ">
+                <h4>Confirmed</h4>
+                <p>{{ posts[0]['confirmed'] }}</p>
+            </div>
+            <div class="cases deaths" style="box-shadow: 3px 3px 2px grey;">
+                <h4>Deaths</h4>
+                <p>{{ posts[0]['deaths'] }}</p>
+            </div>
+            <div class="cases recovered" style="box-shadow: 3px 3px 2px grey;">
+                <h4>Recovered</h4>
+                <p>{{ posts[0]['recovered'] }}</p>
+            </div>
+            <div class="cases active" style="box-shadow: 3px 3px 2px grey;">
+                <h4>Active</h4>
+                <p>{{ posts[0]['active'] }}</p>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="jumbotron" style="background-color: black;">    <!-- background-color: #332e31; -->
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table table-dark table-hover" style='height:700px; overflow:scroll;'>
+                        <thead> 
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">States</th>
+                                <th scope="col">Confirmed cases</th>
+                                <th scope="col">Recovered</th>
+                                <th scope="col">Deceased</th>
+                                <th scope="col">Active cases</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in range(37) %}
+                            <tr>
+                                <td>{{ i+1 }} </td>
+                                <td>{{ posts[0]['states1'][i] }}</td>
+                                <td>{{ posts[0]['confirmed1'][i] }}</td>
+                                <td>{{ posts[0]['recovered1'][i] }}</td>
+                                <td>{{ posts[0]['deaths1'][i] }}</td>
+                                <td>{{ posts[0]['active1'][i] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="container">
+        <div class="rowa1">
+            <div class="chart1" style="width: 100%; height: 450px;" id="lineplot1">
+                <script>
+                    var graphs1 = {{ plot1 | safe}};
+                    Plotly.plot('lineplot1', graphs1, {},);
+
+                </script>
+            </div>
+            <br>
+            <div class="chart2" style="width: 100%; height: 450px;" id="lineplot2">
+                <script>
+                    var graphs2 = {{ plot2 | safe}};
+                    Plotly.plot('lineplot2', graphs2, {},);
+
+                </script>
+            </div>
+        </div>
+    </div>
+
+        <br>
+        <div class="container">
+        <div class="row2 ">
+            <div class="chart3" style="width: 100%; height: 600px;" id="pieplot1">
+                <script>
+                    var graphs3 = {{ plot3 | safe}};
+                    Plotly.plot('pieplot1', graphs3, {},);
+
+                </script>
+            </div>
+            <br>
+            <div class="chart4" style="width: 100%; height: 676px;" id="pieplot2">
+                <script>
+                    var graphs4 = {{ plot4 | safe}};
+                    Plotly.plot('pieplot2', graphs4, {},);
+                </script>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="chart5" style="width: max-width; height: 700px;" id="barplot1">
+            <script>
+                var graphs5 = {{ plot5 | safe}};
+                Plotly.plot('barplot1', graphs5, {},);
+
+            </script>
+        </div>
+        <br>
+
+    </div>
+
+    </div>
+</body>
+
+</html>

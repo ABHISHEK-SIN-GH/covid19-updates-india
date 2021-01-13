@@ -1,0 +1,66 @@
+@media only screen and (min-width: 1020px) {
+  .casesdata {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .cases {
+    width: 200px;
+    background-color: brown;
+    padding-bottom: 10px;
+    padding-top: 18px;
+    text-align: center;
+    border-radius: 25px;
+    margin: 20px;
+  }
+  .cases h4 {
+    font-size: 25px;
+  }
+  .cases p {
+    font-size: 17px;
+  }
+  .cases inamina:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: 1s ease;
+  }
+}
+
+@media only screen and (max-width: 1020px) {
+  .casesdata {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cases {
+    width: 200px;
+    background-color: brown;
+    padding-top: 15px;
+    text-align: center;
+    border-radius: 18px;
+    margin: 10px;
+  }
+
+  .cases {
+    flex: 1 120px;
+  }
+
+  .confirmed {
+    margin-left: 20px;
+  }
+
+  .deaths {
+    margin-right: 20px;
+  }
+
+  .recovered {
+    margin-left: 20px;
+  }
+
+  .active {
+    margin-right: 20px;
+  }
+}

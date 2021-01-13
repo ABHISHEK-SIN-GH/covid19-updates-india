@@ -1,0 +1,107 @@
+/* ::-webkit-scrollbar{
+    display: none;
+} */
+* {
+  margin-top: 0px;
+  padding-top: 20px;
+  font-family: "Dosis", sans-serif;
+  box-sizing: border-box;
+  background-size: cover;
+  
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(wallhaven-83wxly.jpg);
+  background-size: cover;
+  overflow: hidden;
+}
+
+.about-section {
+  background: url(banner-image-new.png) no-repeat left;
+  background-size: 50%;
+  background-image: black;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.inner-container {
+  height: auto;
+  width: 50%;
+  float: right;
+  background-color: rgb(27, 106, 151);
+  padding: 150px;
+  opacity: 0.6;
+}
+
+.inner-container h1 {
+  margin-top: -90px;
+  margin-bottom: 10px;
+  font-size: 50px;
+  font-weight: 900;
+  color: black;
+  opacity: 0.8;
+  letter-spacing: 2px;
+}
+
+.text {
+  font-size: 20px;
+  color: white;
+  line-height: 30px;
+  text-align: justify;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.skills {
+  margin-top: -30px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  .inner-container {
+    padding: 80px;
+  }
+  .inner-container h1 {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .about-section {
+    background-size: 100%;
+    padding: 100px 40px;
+    opacity: 0.9;
+  }
+  .inner-container {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-section {
+    padding: 0;
+  }
+  .inner-container {
+    padding: 60px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-section {
+    padding: 0;
+  }
+  .inner-container {
+    padding: 60px;
+  }
+  .inner-container h1 {
+    margin-top: 250px;
+  }
+}
