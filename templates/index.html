@@ -21,6 +21,7 @@
             style="opacity: 0.9"
           />
         </div>
+
         <div class="list" id="li">
           <ul>
             <li><a href="{{ url_for('mainpage') }}">Home</a></li>
@@ -29,21 +30,32 @@
             <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
           </ul>
         </div>
-        <div class="nav">
-          <label>
-            <input type="checkbox" />
-            <span class="menu">
-              <span class="hamburger"></span>
-            </span>
-            <ul>
-              <li><a href="{{ url_for('mainpage') }}">Home</a></li>
-              <li><a href="{{ url_for('data') }}">Data</a></li>
-              <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
-              <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+
+        <nav class="navbar">
+          <div class="navbar_container">
+            <div class="navbar_toggle" id="mobile-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+            <ul class="navbar_menu">
+              <li class="navbar_item">
+                <a href="{{ url_for('mainpage') }}" class="navbar_links" id="home-page">Home</a>
+              </li>
+              <li class="navbar_item">
+                <a href="{{ url_for('data') }}" class="navbar_links" id="data-page">Data</a>
+              </li>
+              <li class="navbar_item">
+                <a href="{{ url_for('aboutus') }}" class="navbar_links" id="about-page">About Us</a>
+              </li>
+              <li class="navbar_item">
+                <a href="{{ url_for('contactus') }}" class="navbar_links" id="contact-page">Contact Us</a>
+              </li>
             </ul>
-          </label>
-        </div>
+          </div>
+        </nav>
       </div>
+
       <div id="particles-js"></div>
       <div class="content">
         <h1>The Corona Virus Outbreak</h1>
@@ -61,5 +73,16 @@
         }
       );
     </script>
+    <script>
+      const menu = document.querySelector("#mobile-menu");
+      const menuLinks = document.querySelector(".navbar_menu");
+      const navLogo = document.querySelector("#navbar_logo");
+      const mobileMenu = () => {
+        menu.classList.toggle("is-active");
+        menuLinks.classList.toggle("active");
+      };
+      menu.addEventListener("click", mobileMenu);
+    </script>
   </body>
 </html>
+
