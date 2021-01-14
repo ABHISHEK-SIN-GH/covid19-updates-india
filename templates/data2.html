@@ -42,7 +42,29 @@
             </ul>
         </div>
 
-       
+       <nav class="navbar">
+          <div class="navbar_container">
+            <div class="navbar_toggle" id="mobile-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+            <ul class="navbar_menu">
+              <li class="navbar_item">
+                <a href="{{ url_for('mainpage') }}" class="navbar_links" id="home-page">Home</a>
+              </li>
+              <li class="navbar_item">
+                <a href="{{ url_for('data') }}" class="navbar_links" id="data-page">Data</a>
+              </li>
+              <li class="navbar_item">
+                <a href="{{ url_for('aboutus') }}" class="navbar_links" id="about-page">About Us</a>
+              </li>
+              <li class="navbar_item">
+                <a href="{{ url_for('contactus') }}" class="navbar_links" id="contact-page">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
     </div>
 
     <div class="belownav" style="background-color: black;">
